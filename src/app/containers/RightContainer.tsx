@@ -1,8 +1,17 @@
+'use client'
+
+import styled from "styled-components";
+
+const Right = styled.div`
+    background-color: #ed9f9f;
+    padding: 200px 300px;
+`
+
 const RightContainer: React.FC = () => {
     return (
-        <div>
+        <Right>
             <h1>Right Container</h1>
-        </div>
+        </Right>
     )
 }
 
