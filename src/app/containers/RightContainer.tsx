@@ -1,6 +1,7 @@
 'use client'
 
 import styled from "styled-components";
+import BotFace from "../components/BotFace";
 
 const Right = styled.div`
     background-color: #ed9f9f;
@@ -10,8 +11,9 @@ const Right = styled.div`
 const RightContainer: React.FC = () => {
     return (
         <Right>
+            <BotFace/>
             <h1>Right Container</h1>
-        </Right>
+            </Right>
     )
 }
 
