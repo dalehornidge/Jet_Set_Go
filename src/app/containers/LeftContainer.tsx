@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
 const Left = styled.div`
-    background-color: grey;
-    padding: 200px 300px;
+    background-color: #FFA857;
+    box-sizing: border-box;
+`
+
+const StyledImage = styled.img`
+    width: 80%;
+    height: auto;
+    padding-left: 5%;
 `
 
 const LeftContainter: React.FC = () => {
     return (
         <Left>
-            <h1>Left Container</h1>
+            <StyledImage src="/img/polaroids.png" alt="Two people enjoying the sun"/>
         </Left>
     );
 }
