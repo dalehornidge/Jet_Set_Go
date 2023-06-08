@@ -6,7 +6,7 @@ const Left = styled.div`
 `
 
 const StyledImage = styled.img`
-    width: 80%;
+    width: 90%;
     height: auto;
     padding-left: 5%;
 `

@@ -11,7 +11,8 @@ const caveat = Caveat({
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  padding: 20px 100px;
+  padding: 20px 150px;
+  padding-left: 200px;
   background-color: #FFA857;
   color: white;
   font-size: 40px;
@@ -27,13 +28,17 @@ const Menu = styled.div`
   padding: 20px;
 `;
 
+const StyledLink = styled.a`
+  font-size: 20px;
+`
+
 const NavBar: React.FC = () => {
   return (
     <Nav>
       <StyledH1 className={caveat.className}>JetSetGo!</StyledH1>
       <Menu>
-        <a href="/link1">Log-in</a>
-        <a href="/link2">About Us</a>
+        <StyledLink href="/link1">Log-in</StyledLink>
+        <StyledLink href="/link2">About Us</StyledLink>
       </Menu>
     </Nav>
   );

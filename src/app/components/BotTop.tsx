@@ -2,27 +2,34 @@ import styled from "styled-components";
 
 const Bot = styled.div`
   flex: 1;
-  max-height: 50%;
+  max-height: 40%;
   display: flex;
+  align-items: center; /* added this line */
+
   background-color: #FF99FF;
   border-radius: 20px;
-  justify-content: space-between;
-  padding: 0px 50px;
-  height: 40%;
+  /* justify-content: space-between; */
+  padding: 0px 10px;
+  height: 60%;
+
 
 `
 
 const StyledH1 = styled.h1`
   flex: 1;
   text-align: center; /* optional, to center the text */
-  font-size: 50px;
+  font-size: 30px;
   color: white;
 `
 
 const StyledImage = styled.img`
   flex: 1;
   /* object-fit: cover; This will make the image cover the available space without distorting */
-  width: 0.5%;
+  height: 100%;
+  width: 50%;
+  padding-top: 30px;
+  
+  /* padding: 20px; */
 `
 
 const BotTop: React.FC = () => {

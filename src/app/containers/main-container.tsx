@@ -6,9 +6,10 @@ import LeftContainer from "./LeftContainer";
 
 const Main = styled.div`
     display: flex;
+    align-items: center;
     width: 100%;
-    padding: 50px 20px;
-    background-color: #fcfcfc;
+    padding: 60px 60px;
+    background-color: #FFA857;
 `;
 
 const Container = styled.div`

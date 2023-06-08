@@ -11,6 +11,7 @@ const Form = styled.form`
   max-width: 400px;
   margin: auto;
   padding: 40px 20px;
+  
 `;
 
 const Label = styled.label`
@@ -35,11 +36,11 @@ const Button = styled.button`
   border: none;
   border-radius: 4px;
   color: white;
-  background-color: #007BFF;
+  background-color: #FF99FF;
   cursor: pointer;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #FF99FF;
   }
 `;
 
