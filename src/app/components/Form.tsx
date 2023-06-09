@@ -44,12 +44,30 @@ const Button = styled.button`
   }
 `;
 
-const TripForm: React.FC = () => {
-  const [destination, setDestination] = useState("");
-  const [interest, setInterest] = useState("");
-  const [days, setDays] = useState(1);
+interface Conversation {
+    role: string  
+    content: string
+}
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+const TripForm: React.FC = () => {
+  const [destination, setDestination] = React.useState<string>("");
+  const [interest, setInterest] = React.useState<string>("");
+  const [days, setDays] = useState(1);
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    if event.key === 'Enter' {
+        const chatHistory = [..destination, ..interest, ..days{role: "user", content: value}]
+        const response = await fetch('/api/openAIChat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({messages: chatHistory}),
+        });
+
+
+
     e.preventDefault();
     console.log(`Destination: ${destination}, Interest: ${interest}, Days: ${days}`);
     // Here you can add the logic for the form submission, like calling an API
