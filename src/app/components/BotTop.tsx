@@ -6,7 +6,7 @@ const Bot = styled.div`
   display: flex;
   align-items: center; /* added this line */
 
-  background-color: #FF99FF;
+  background-color: #FFFF;
   border-radius: 20px;
   /* justify-content: space-between; */
   padding: 0px 10px;
@@ -19,7 +19,7 @@ const StyledH1 = styled.h1`
   flex: 1;
   text-align: center; /* optional, to center the text */
   font-size: 30px;
-  color: white;
+  color: #ff9d41;
 `
 
 const StyledImage = styled.img`

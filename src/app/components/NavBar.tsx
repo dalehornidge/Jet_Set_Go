@@ -11,15 +11,15 @@ const caveat = Caveat({
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  padding: 20px 150px;
+  padding: 10px 150px;
   padding-left: 200px;
-  background-color: #FFA857;
-  color: white;
+  background-color: #ffff;
+  color: #ff9d41;
   font-size: 40px;
 `;
 
 const StyledH1 = styled.h1`
-  font-size: 75px;
+  font-size: 95px;
   `;
 
 const Menu = styled.div`

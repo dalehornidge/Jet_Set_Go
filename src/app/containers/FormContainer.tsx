@@ -2,7 +2,7 @@ import styled from "styled-components";
 import TripForm from "../components/Form";
 
 const StyledFormContainer = styled.div`
-    background-color: #FF6B57;
+    background-color: #ffff;
     /* width: 80%; */
     
 `

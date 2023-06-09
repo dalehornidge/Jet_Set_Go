@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Left = styled.div`
-    background-color: #FFA857;
+    background-color: #ffff;
     box-sizing: border-box;
 `
 

@@ -6,7 +6,7 @@ import FormContainer from "./FormContainer";
 import BotContainer from "./BotContainer";
 
 const Right = styled.div`
-    background-color: #FFA857;
+    background-color: #ffff;
     box-sizing: border-box;
 display: flex;
   justify-content: center;

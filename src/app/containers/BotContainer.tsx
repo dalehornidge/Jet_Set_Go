@@ -4,15 +4,15 @@ import FormContainer from "./FormContainer";
 
 const StyledBotContainer = styled.div`
     display: flex;
-    background-color: #FF99FF;
+    background-color: #FFFF;
     border-radius: 20px;
     flex-direction: column;
     width: 65%;
-    height: 80%;
+    height: 60%;
     /* overflow: auto; */
     border-radius: 10px;
   border: 10px solid white;
-  border-color: #FFFF;
+  border-color: #ff9d41;
 `
 
 const BotContainer: React.FC = () => {

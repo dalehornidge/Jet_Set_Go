@@ -8,8 +8,8 @@ const Main = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 60px 60px;
-    background-color: #FFA857;
+    padding: 40px 60px;
+    background-color: #ffff;
 `;
 
 const Container = styled.div`
