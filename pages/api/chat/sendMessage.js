@@ -1,12 +1,12 @@
-import { OpenAIEdgeStream } from 'openai-edge-stream';
+import { OpenAIEdgeStream } from "openai-edge-stream";
 
 export const config = {
     runtime: "edge",
 };
 
-export default async function handler(req){
-    try{
-    const {message} = await req.json();
+export default async function handler(req) {
+    try {
+    const { message } = await req.json();
     const stream = await OpenAIEdgeStream(
         "https://api.openai.com/v1/chat/completions", {
             headers: {
@@ -15,9 +15,9 @@ export default async function handler(req){
         },
         method: "POST",
         body: JSON.stringify({
-        model: "gpt3.5-turbo",
+        model: "gpt-3.5-turbo",
         messages: [{content: message, role: "user"}],
-        strea: true
+        stream: true
         })
     }
     );
