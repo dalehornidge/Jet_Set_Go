@@ -4,7 +4,7 @@ import LeftSide from 'components/LeftSide';
 import RightSide from 'components/RightSide';
 import Footer from 'components/Footer';
 
-export default function Home() {
+export default function ChatPage() {
   return (
     <>
       <Head>

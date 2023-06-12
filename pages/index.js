@@ -23,9 +23,9 @@ export default function Home() {
       {!user && (
         <> 
       <Link href="/api/auth/login" 
-      className="rounded-md bg-cyan-400 px-4 py-2 text-white hover:bg-cyan-600">Login</Link>
+      className="btn">Login</Link>
       <Link href="/api/auth/signup"
-      className="rounded-md bg-cyan-400 px-4 py-2 text-white hover:bg-cyan-600">Sign Up</Link>
+      className="btn">Sign Up</Link>
       </>
         )}
       </div>
