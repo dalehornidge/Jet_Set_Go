@@ -14,10 +14,10 @@ export default function Home() {
         <div className="col-span-12 row-span-1">
           <NavBar />
         </div>
-        <div className="col-span-8 row-span-4">
+        <div className="col-span-7 row-span-4 object-right ">
           <LeftSide />
         </div>
-        <div className="col-span-4 row-span-4">
+        <div className="col-span-5 row-span-4">
           <RightSide />
         </div>
         <div className="col-span-12 row-span-1">
