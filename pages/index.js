@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { getSession } from "@auth0/nextjs-auth0";
+import NavBar from "components/NavBar";
 
 export default function Home() {
 
@@ -17,6 +18,7 @@ export default function Home() {
       </Head> 
       <div className="flex justify-center items-center min-h-screen w-full bg-white text-black text-center">
       <div>
+      <NavBar/>
       {!!user && <Link href="/api/auth/logout">Logout</Link> }
       {!user && (
         <> 
@@ -33,16 +35,16 @@ export default function Home() {
 }
 
 
-// export const getServerSideProps = async (ctx) => {
-//   const session = await getSession(ctx.req, ctx.res);
-//   if(!!session){
-//     return {
-//       redirect: {
-//         destination: "/chat",
-//       },
-//     };
-//   }
-//     return { 
-//       props: {}, 
-//     };
-// };
+export const getServerSideProps = async (ctx) => {
+  const session = await getSession(ctx.req, ctx.res);
+  if(!!session){
+    return {
+      redirect: {
+        destination: "/chat",
+      },
+    };
+  }
+    return { 
+      props: {}, 
+    };
+};
