@@ -16,7 +16,8 @@ export default function Home() {
       <Head>
         <title>Jet Set Go!</title>
       </Head> 
-      <div className="flex justify-center items-center min-h-screen w-full bg-white text-black text-center">
+      <div className="bg-cover bg-center min-h-screen">
+      <div className="flex justify-center items-center min-h-screen w-full text-black text-center">
       <div>
       <NavBar/>
       {!!user && <Link href="/api/auth/logout">Logout</Link> }
@@ -28,6 +29,7 @@ export default function Home() {
       className="btn">Sign Up</Link>
       </>
         )}
+      </div>
       </div>
       </div>
     </>

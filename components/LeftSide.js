@@ -1,7 +1,14 @@
-export default function LeftSide() {
-    return (
-      <div className="rounded-lg border-white bg-white p-7 object-right">
-        <img className="object-center w-3/4" src="/polaroids.png" alt="collection of poloroids" />
-      </div>
-    )
-  }
+import clsx from 'clsx';
+
+export default function LeftSide({ apiResponse }) {
+  const boxClasses = clsx({
+    'font-sans rounded-lg p-7 shadow-lg object-right bg-gray-200 text-gray-900': apiResponse,
+  });
+
+  return (
+    <div className={boxClasses}>
+        <h1 className="font-caveat text-amber-500 text-xl">Ooooft sounds nice! Here's what I think you should do</h1>
+      {apiResponse && <p>{apiResponse}</p>}
+    </div>
+  );
+}
