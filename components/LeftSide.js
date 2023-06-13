@@ -62,7 +62,7 @@ export default function LeftSide({ onApiResponse }) {
     };
 
     return (
-      <div className="rounded-lg p-16">
+      <div className="rounded-lg pl-20 pt-16">
         <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGBlue">{formSubmitted ? "Hold tight! We're planning the trip of your dreams! 😎" : "Need inspiration for your next big trip?"}</h1>
         <h1 className="text-5xl mb-10 font-bold font-gafata text-JSGCream">{formSubmitted ? countdown : "Let us help you!"}</h1>
         {formSubmitted ? (
@@ -84,7 +84,7 @@ export default function LeftSide({ onApiResponse }) {
                   }
                 }}
                 placeholder={questions[currentQuestion].text}
-                className="w-full resize-none rounded-md text-3xl bg-JSGCream p-2 text-JSGBlue border-JSGBlue focus:border-cyan-600 focus:bg-pink-200 focus:outline focus:outline-cyan-600 "
+                className="w-full resize-none rounded-md text-3xl bg-JSGCream p-2 text-JSGBlue border-JSGBlue focus:border-cyan-600 focus:bg-cyan-100 focus:outline focus:outline-cyan-600 "
               />
               <button type="submit" className="btn">Send</button>
             </fieldset>

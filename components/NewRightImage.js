@@ -7,8 +7,9 @@ const NewRightImage = () => {
       <Image 
         src="/rightsideimage.png" 
         alt="View of a coastline" 
-        width={540} 
+        width={800} 
         height={350}
+        
         className="object-contain" 
       />
     </div>

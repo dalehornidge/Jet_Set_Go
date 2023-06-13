@@ -6,7 +6,6 @@ import Footer from 'components/Footer';
 import NewRightImage from "components/NewRightImage";
 import RightSide from "components/RightSide";
 
-
 export default function ChatPage() {
   const [apiResponse, setApiResponse] = useState("");
 
@@ -21,7 +20,6 @@ export default function ChatPage() {
       <Head>
         <title>Jet Set Go! - New Itinerary</title>
       </Head>
-      {/* <div className="flex flex-col h-screen bg-[url('/background5.png')] w-screen mx-auto"> */}
       <div className="flex flex-col pb-16 h-screen bg-JSGOrange w-screen mx-auto">
         <div className="">
           <NavBar />
@@ -30,11 +28,12 @@ export default function ChatPage() {
         <div className="lg:w-5/12 md:w-full">
             <LeftSide onApiResponse={handleApiResponse} />
           </div>
-          <div className="flex lg:w-7/12 md:w-full justify-end items-center">
-            <RightSide apiResponse={apiResponse} />
-            <NewRightImage/> 
-          </div>
-
+          <div className="flex lg:w-7/12 justify-end items-center">
+  <div className="mr-20 ml-10">
+    <RightSide apiResponse={apiResponse} />
+  </div>
+  {apiResponse === "" && <NewRightImage/>}
+</div>
         </div>
         <div className="">
           <Footer className="align-bottom" />
