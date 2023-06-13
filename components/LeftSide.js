@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { streamReader } from "openai-edge-stream";
 
 export default function LeftSide({ onApiResponse }) {
@@ -9,7 +9,17 @@ export default function LeftSide({ onApiResponse }) {
     ]);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [formSubmitted, setFormSubmitted] = useState(false);
+    const [countdown, setCountdown] = useState("");
+    const [countdownIndex, setCountdownIndex] = useState(0);
 
+    useEffect(() => {
+        const countdownArr = ["5,", "4,", "3,", "2,", "1,", "...", "🌴"];
+        if (formSubmitted && countdownIndex < countdownArr.length) {
+            setCountdown((prevCountdown) => prevCountdown + " " + countdownArr[countdownIndex]);
+            const timeoutId = setTimeout(() => setCountdownIndex(countdownIndex + 1), 1000);
+            return () => clearTimeout(timeoutId);
+        }
+    }, [formSubmitted, countdownIndex]);
     const handleSubmit = async (e) => {
       e.preventDefault();
       
@@ -48,17 +58,15 @@ export default function LeftSide({ onApiResponse }) {
       ]);
       setCurrentQuestion(0);
       setFormSubmitted(false);
+      setCountdown("");
     };
 
     return (
       <div className="rounded-lg p-16">
-        <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGBlue">Need inspiration for your next big trip?</h1>
-        <h1 className="text-5xl mb-10 font-bold font-gafata text-JSGCream">Let us help you!</h1>
+        <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGBlue">{formSubmitted ? "Hold tight! We're planning the trip of your dreams! 😎" : "Need inspiration for your next big trip?"}</h1>
+        <h1 className="text-5xl mb-10 font-bold font-gafata text-JSGCream">{formSubmitted ? countdown : "Let us help you!"}</h1>
         {formSubmitted ? (
-          <div>
-            <p>Hold tight! We're planning the vacation of your dreams!</p>
-            <button onClick={resetForm} className="btn">Try Again</button>
-          </div>
+          <button onClick={resetForm} className="btn">Try Again</button>
         ) : (
           <form onSubmit={handleSubmit}>
             <fieldset className="flex gap-2">

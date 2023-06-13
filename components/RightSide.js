@@ -8,7 +8,7 @@ export default function RightSide({ apiResponse }) {
   return (
     <div className={boxClasses}>
         <h1 className="font-caveat text-amber-500 text-xl">Ooooft sounds nice! Here's what I think you should do</h1>
-      {apiResponse && <p>{apiResponse}</p>}
+      {apiResponse && <pre className="whitespace-pre-wrap">{apiResponse}</pre>}
     </div>
   );
 }
