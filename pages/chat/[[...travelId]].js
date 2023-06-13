@@ -31,7 +31,7 @@ export default function ChatPage() {
             <TopLeftSide onApiResponse={handleApiResponse} />
           </div>
           <div className="flex lg:w-7/12 md:w-full justify-end items-center">
-            {/* <LeftSide apiResponse={apiResponse} /> */}
+            <LeftSide apiResponse={apiResponse} />
             <NewRightImage/> 
           </div>
 
