@@ -2,9 +2,9 @@ import { useState } from "react";
 import Head from 'next/head';
 import NavBar from 'components/NavBar';
 import LeftSide from 'components/LeftSide';
-import TopLeftSide from 'components/TopLeftSide';
 import Footer from 'components/Footer';
 import NewRightImage from "components/NewRightImage";
+import RightSide from "components/RightSide";
 
 
 export default function ChatPage() {
@@ -28,10 +28,10 @@ export default function ChatPage() {
         </div>
         <div className="flex-grow lg:flex md:block">
         <div className="lg:w-5/12 md:w-full">
-            <TopLeftSide onApiResponse={handleApiResponse} />
+            <LeftSide onApiResponse={handleApiResponse} />
           </div>
           <div className="flex lg:w-7/12 md:w-full justify-end items-center">
-            <LeftSide apiResponse={apiResponse} />
+            <RightSide apiResponse={apiResponse} />
             <NewRightImage/> 
           </div>
 
