@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { streamReader } from "openai-edge-stream";
 
-export default function RightSide({ onApiResponse }) {
+export default function TopLeftSide({ onApiResponse }) {
     const [messageText, setMessageText] = useState("");
 
     const handleSubmit = async (e) => {
@@ -32,14 +32,15 @@ export default function RightSide({ onApiResponse }) {
 
     return (
       <div className="rounded-lg p-16">
-        <h1>RIGHT SIDE! JET SET GO!</h1>
+        <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGBlue">Need inspiration for your next big trip?</h1>
+        <h1 className="text-5xl mb-10 font-bold font-gafata text-JSGCream">Let us help you!</h1>
         <form onSubmit={handleSubmit}>
         <fieldset className="flex gap-2">
         <textarea
         value={messageText}
         onChange={e => setMessageText(e.target.value)}
     
-         placeholder="Where do you want to go...?" className="w-full resize-none rounded-md bg-pink-300 p-2 text-white focus: border-pink-700 focus:bg-pink-200 focus:outline focus:outline-pink-700 "/>
+         placeholder="Where do you want to go...?" className="w-full resize-none rounded-md bg-JSGCream p-2 text-white border-JSGBlue focus:border-cyan-600 focus:bg-pink-200 focus:outline focus:outline-cyan-600 "/>
         <button type="submit"
         className="btn"
         >Send</button>

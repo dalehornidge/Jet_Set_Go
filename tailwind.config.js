@@ -12,9 +12,13 @@ module.exports = {
     extend: {
       fontFamily: {
         'caveat': ['Caveat', 'cursive'],
+        'dm': ['DM Sans', 'sans-serif'],
+        'gafata': ['Gafata', 'sans-serif'],
       },
       colors: {
         'JSGOrange': '#FF957E',
+        'JSGBlue': '#2E3D2F',
+        'JSGCream': '#FDF6EE',
       }
     },
   },

@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Gafata&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
+
 @layer components {
   .btn {
-    @apply rounded-md bg-cyan-400 px-4 py-2 text-white hover:bg-cyan-600;
+    @apply rounded-md bg-JSGBlue px-4 py-2 text-JSGCream hover:bg-cyan-600;
   }
 }
