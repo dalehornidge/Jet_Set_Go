@@ -15,6 +15,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "clsx": "^1.2.1",
     "mongodb": "^5.2.0",
+    "mongoose": "^7.2.4",
     "next": "13.3.0",
     "openai": "^3.2.1",
     "openai-edge-stream": "^2.0.1",
@@ -22,6 +23,8 @@
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.7",
     "sharp": "^0.32.0",
+    "swr": "^2.1.5",
+    "unfetch": "^5.0.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

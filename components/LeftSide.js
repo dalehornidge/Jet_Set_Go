@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { streamReader } from "openai-edge-stream";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
-export default function LeftSide({ onApiResponse }) {
+export default function LeftSide({ onApiResponse, apiResponse }) {
   const [questions, setQuestions] = useState([
     { text: "Where do you want to go...?", answer: "" },
     { text: "For how many days?", answer: "" },
@@ -13,6 +14,8 @@ export default function LeftSide({ onApiResponse }) {
   const [countdownIndex, setCountdownIndex] = useState(0);
   const [showGiphy, setShowGiphy] = useState(false);
   const [showText, setShowText] = useState(false);
+
+  const { user, isLoading, isError } = useUser();
 
   useEffect(() => {
     const countdownArr = ["5,", "4,", "3,", "2,", "1,", "...", "🌴"];
@@ -28,7 +31,36 @@ export default function LeftSide({ onApiResponse }) {
       const timeoutId = setTimeout(() => setCountdownIndex(countdownIndex + 1), 1000);
       return () => clearTimeout(timeoutId);
     }
-}, [formSubmitted, countdownIndex]);
+  }, [formSubmitted, countdownIndex]);
+
+  const handleSaveItinerary = async () => {
+    // Check if user is logged in
+    if (!user) {
+      console.log('User is null or undefined'); // Add this line for debugging
+      alert('You must be logged in to save the itinerary');
+      return;
+    }
+  
+    console.log('User:', user);
+
+    try {
+      const response = await fetch('/api/save-itinerary', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ itinerary: apiResponse, userId: user.sub }),
+      });
+
+      if (response.ok) {
+        alert('Itinerary saved successfully');
+      } else {
+        throw new Error('Failed to save itinerary');
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,7 +101,8 @@ export default function LeftSide({ onApiResponse }) {
     setCurrentQuestion(0);
     setFormSubmitted(false);
     setCountdown("");
-};
+    window.location.reload();
+  };
 
   return (
     <div className="rounded-lg pl-20 pt-16">
@@ -81,7 +114,7 @@ export default function LeftSide({ onApiResponse }) {
             <>
               <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGBlue">Your itinerary will be right with you...</h1>
               <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGCream" style={{ transitionDelay: "2s" }}>Sounds great, right?</h1>
-              <button className="btn">Save Itinerary</button>
+              <button onClick={handleSaveItinerary} className="btn">Save Itinerary</button>
               <button onClick={resetForm} className="btn">Try Again</button>
             </>
           )}

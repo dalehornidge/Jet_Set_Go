@@ -15,6 +15,10 @@ export default function ChatPage() {
     setApiResponse(newResponse);
   }
 
+  const resetApiResponse = () => {
+    setApiResponse("");
+  }
+
   return (
     <>
       <Head>
@@ -26,7 +30,7 @@ export default function ChatPage() {
         </div>
         <div className="flex-grow lg:flex md:block">
         <div className="lg:w-5/12 md:w-full">
-            <LeftSide onApiResponse={handleApiResponse} />
+            <LeftSide onApiResponse={handleApiResponse} onReset={resetApiResponse} apiResponse={apiResponse} />
           </div>
           <div className="flex lg:w-7/12 justify-end items-center">
   <div className="mr-20 ml-10">
