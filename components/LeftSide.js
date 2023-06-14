@@ -24,14 +24,11 @@ export default function LeftSide({ onApiResponse }) {
           setShowGiphy(false);
           setShowText(true);
         }, 5000);
-        setTimeout(() => {
-          resetForm();
-        }, 8000);
       }
       const timeoutId = setTimeout(() => setCountdownIndex(countdownIndex + 1), 1000);
       return () => clearTimeout(timeoutId);
     }
-  }, [formSubmitted, countdownIndex]);
+}, [formSubmitted, countdownIndex]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,7 +69,7 @@ export default function LeftSide({ onApiResponse }) {
     setCurrentQuestion(0);
     setFormSubmitted(false);
     setCountdown("");
-  };
+};
 
   return (
     <div className="rounded-lg pl-20 pt-16">
@@ -84,6 +81,8 @@ export default function LeftSide({ onApiResponse }) {
             <>
               <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGBlue">Your itinerary will be right with you...</h1>
               <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGCream" style={{ transitionDelay: "2s" }}>Sounds great, right?</h1>
+              <button className="btn">Save Itinerary</button>
+              <button onClick={resetForm} className="btn">Try Again</button>
             </>
           )}
           {!showText && (
