@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 export default function RightSide({ apiResponse }) {
   const boxClasses = clsx({
-    'font-sans rounded-lg p-7 shadow-lg object-right bg-gray-200 text-gray-900': apiResponse,
+    'font-gafata rounded-lg p-7 shadow-lg object-right bg-gray-200 text-gray-900': apiResponse,
     'max-h-[600px] overflow-y-scroll': apiResponse, 
   });
 

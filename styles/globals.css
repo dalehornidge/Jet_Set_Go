@@ -3,7 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+body {
+    @apply bg-JSGOrange;
+  }
 
 @layer components {
   .btn {
