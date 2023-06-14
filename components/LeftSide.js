@@ -12,6 +12,7 @@ export default function LeftSide({ onApiResponse }) {
   const [countdown, setCountdown] = useState("");
   const [countdownIndex, setCountdownIndex] = useState(0);
   const [showGiphy, setShowGiphy] = useState(false);
+  const [showText, setShowText] = useState(false);
 
   useEffect(() => {
     const countdownArr = ["5,", "4,", "3,", "2,", "1,", "...", "🌴"];
@@ -21,8 +22,11 @@ export default function LeftSide({ onApiResponse }) {
         setShowGiphy(true);
         setTimeout(() => {
           setShowGiphy(false);
-          resetForm();
+          setShowText(true);
         }, 5000);
+        setTimeout(() => {
+          resetForm();
+        }, 8000);
       }
       const timeoutId = setTimeout(() => setCountdownIndex(countdownIndex + 1), 1000);
       return () => clearTimeout(timeoutId);
@@ -73,39 +77,49 @@ export default function LeftSide({ onApiResponse }) {
   return (
     <div className="rounded-lg pl-20 pt-16">
       {showGiphy ? (
-        <div dangerouslySetInnerHTML={{ __html: '<iframe src="https://giphy.com/embed/jUDvU0mBA9trNjOV3e" width="480" height="479" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cbc-canada-birds-canadian-jUDvU0mBA9trNjOV3e">via GIPHY</a></p>' }}></div>
+        <div dangerouslySetInnerHTML={{ __html: `<iframe src="https://giphy.com/embed/jUDvU0mBA9trNjOV3e" width="480" height="479" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cbc-canada-birds-canadian-jUDvU0mBA9trNjOV3e">via GIPHY</a></p>` }}></div>
       ) : (
         <>
-          <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGBlue">Need inspiration for your next big trip?</h1>
-          {formSubmitted ? (
+          {showText && (
             <>
-              <h1 className="text-5xl mb-10 font-bold font-gafata text-JSGCream">{countdown}</h1>
-              <button onClick={resetForm} className="btn">Try Again</button>
+              <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGBlue">Your itinerary will be right with you...</h1>
+              <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGCream" style={{ transitionDelay: "2s" }}>Sounds great, right?</h1>
             </>
-          ) : (
+          )}
+          {!showText && (
             <>
-              <h1 className="text-5xl mb-10 font-bold font-gafata text-JSGCream">Let us help you!</h1>
-              <form onSubmit={handleSubmit}>
-                <fieldset className="flex gap-2">
-                  <textarea
-                    value={questions[currentQuestion].answer}
-                    onChange={e => {
-                      const newQuestions = [...questions];
-                      newQuestions[currentQuestion].answer = e.target.value;
-                      setQuestions(newQuestions);
-                    }}
-                    onKeyDown={e => {
-                      if (e.key === 'Enter') {
-                        e.preventDefault();
-                        handleSubmit(e);
-                      }
-                    }}
-                    placeholder={questions[currentQuestion].text}
-                    className="w-full resize-none rounded-md text-3xl bg-JSGCream p-2 text-JSGBlue border-JSGBlue focus:border-cyan-600 focus:bg-cyan-100 focus:outline focus:outline-cyan-600 "
-                  />
-                  <button type="submit" className="btn">Send</button>
-                </fieldset>
-              </form>
+              <h1 className="text-5xl mb-7 font-bold font-gafata text-JSGBlue">Need inspiration for your next big trip?</h1>
+              {formSubmitted ? (
+                <>
+                  <h1 className="text-5xl mb-10 font-bold font-gafata text-JSGCream">{countdown}</h1>
+                  <button onClick={resetForm} className="btn">Try Again</button>
+                </>
+              ) : (
+                <>
+                  <h1 className="text-5xl mb-10 font-bold font-gafata text-JSGCream">Let us help you!</h1>
+                  <form onSubmit={handleSubmit}>
+                    <fieldset className="flex gap-2">
+                      <textarea
+                        value={questions[currentQuestion].answer}
+                        onChange={e => {
+                          const newQuestions = [...questions];
+                          newQuestions[currentQuestion].answer = e.target.value;
+                          setQuestions(newQuestions);
+                        }}
+                        onKeyDown={e => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleSubmit(e);
+                          }
+                        }}
+                        placeholder={questions[currentQuestion].text}
+                        className="w-full resize-none rounded-md text-3xl bg-JSGCream p-2 text-JSGBlue border-JSGBlue focus:border-cyan-600 focus:bg-cyan-100 focus:outline focus:outline-cyan-600 "
+                      />
+                      <button type="submit" className="btn">Send</button>
+                    </fieldset>
+                  </form>
+                </>
+              )}
             </>
           )}
         </>
