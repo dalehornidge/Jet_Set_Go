@@ -1,3 +1,15 @@
+JetSetGo was my final project at CodeClan. Built as a 2 week capstone project. JetSetGo helps users quickly build travel itineraies by utilising OpenAI's API and user submitted info collected through the site's onboarding. 
+
+Built using NextJS with Auth0 implemented.
+
+<img width="1422" alt="Screenshot 2023-08-07 at 11 28 37" src="https://github.com/dalehornidge/Jet_Set_Go/assets/124175762/59c6edda-efda-40d1-b5fb-8f39c1b43469">
+
+<img width="1421" alt="Screenshot 2023-08-07 at 11 29 33" src="https://github.com/dalehornidge/Jet_Set_Go/assets/124175762/3e3fa90d-2756-4806-86bc-d5c22b50e8c7">
+
+<img width="1421" alt="Screenshot 2023-08-07 at 11 32 18" src="https://github.com/dalehornidge/Jet_Set_Go/assets/124175762/8427494c-55e6-4edf-8879-74cb3ae2c1dd">
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
